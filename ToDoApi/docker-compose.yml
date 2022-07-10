@@ -5,11 +5,13 @@ services:
     image: redis:latest
     container_name: redis01
     ports:
-      - target: 6379
-        host_ip: 127.0.0.1
-        published: 6379
-        protocol: tcp
-        mode: host
+      - '6379:6379'
+#    Config detail of ports
+#      - target: 6379
+#        host_ip: 127.0.0.1
+#        published: 6379
+#        protocol: tcp
+#        mode: host
     restart: always
     expose:
       - '6379'
@@ -25,11 +27,13 @@ services:
     environment:
         DEBUG: 'true'
     ports:
-      - target: 8000
-        host_ip: 127.0.0.1
-        published: 8000
-        protocol: tcp
-        mode: host
+      - '8000:8000'
+#    Config detail of ports
+#      - target: 8000
+#        host_ip: 127.0.0.1
+#        published: 8000
+#        protocol: tcp
+#        mode: host
     links:
       - redis
     depends_on:
